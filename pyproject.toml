@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptshield-scan"
+version = "0.1.0"
+description = "Detect prompt injection, ASCII smuggling and hidden text before it reaches your LLM."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Muhammed Taha Özer" }]
+keywords = ["llm", "prompt-injection", "ai-security", "rag", "unicode", "security"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+promptshield = "promptshield.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/tahaSec/promptshield"
+Issues = "https://github.com/tahaSec/promptshield/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+addopts = "--doctest-modules"
